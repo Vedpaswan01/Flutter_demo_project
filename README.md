@@ -2,9 +2,12 @@
 
 This is a short video app built with Flutter and developed using Android Studio.
 # Home Page
-![WhatsApp Image 2023-06-24 at 5 51 12 PM](https://github.com/Vedpaswan01/Flutter_demo_project/assets/105913917/3884edec-e7db-400a-94d2-24469b6cb5d0)
+![WhatsApp Image 2023-06-24 at 5 51 12 PM](https://github.com/Vedpaswan01/Flutter_demo_project/assets/105913917/c7f4ead1-383c-4393-8e56-6b0c76e76c95)
+
+
 # Video Page
-![WhatsApp Image 2023-06-24 at 5 52 31 PM](https://github.com/Vedpaswan01/Flutter_demo_project/assets/105913917/25c982ec-436e-4380-831f-8c91f6983ce7)
+![WhatsApp Image 2023-06-24 at 5 52 31 PM](https://github.com/Vedpaswan01/Flutter_demo_project/assets/105913917/3ce35616-d578-40e5-8b36-ea972e0611ef)
+
 
 
 
