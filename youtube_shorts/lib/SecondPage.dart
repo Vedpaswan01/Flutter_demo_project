@@ -21,7 +21,7 @@ class SecondPage extends StatefulWidget {
 }
 
 class SecondPageState extends State<SecondPage> {
-  late PageController pageController;
+   late PageController pageController;
   int currentPageValue = 0;
 
   @override
@@ -70,23 +70,16 @@ class SecondPageState extends State<SecondPage> {
 
   Widget buildVideoThumbnail(int index) {
     final video = widget.videos[index];
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          widget.currentIndex = index;
-          pageController.jumpToPage(index);
-        });
-      },
-      child: Container(
-        margin: const EdgeInsets.all(4.0),
+    return Container(
+        margin: const EdgeInsets.all(2.0),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(video.thumbnail),
             fit: BoxFit.cover,
           ),
         ),
-      ),
-    );
+      );
+
   }
 
   @override
