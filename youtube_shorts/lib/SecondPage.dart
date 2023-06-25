@@ -21,14 +21,14 @@ class SecondPage extends StatefulWidget {
 }
 
 class SecondPageState extends State<SecondPage> {
-  late PageController _pageController;
+  late PageController pageController;
   int currentPageValue = 0;
 
   @override
   void initState() {
     super.initState();
     currentPageValue = widget.currentPage;
-     _pageController = PageController(initialPage: widget.currentIndex);
+     pageController = PageController(initialPage: widget.currentIndex);
   }
 
   Future<List<Video>> fetchVideos() async {
@@ -64,7 +64,7 @@ class SecondPageState extends State<SecondPage> {
 
   @override
   void dispose() {
-     _pageController.dispose();
+     pageController.dispose();
     super.dispose();
   }
 
@@ -74,7 +74,7 @@ class SecondPageState extends State<SecondPage> {
       onTap: () {
         setState(() {
           widget.currentIndex = index;
-          _pageController.jumpToPage(index);
+          pageController.jumpToPage(index);
         });
       },
       child: Container(
@@ -99,7 +99,7 @@ class SecondPageState extends State<SecondPage> {
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: PageView.builder(
-          controller: _pageController,
+          controller: pageController,
           scrollDirection: Axis.vertical,
           itemCount: widget.videos.length,
           onPageChanged: (index) {
