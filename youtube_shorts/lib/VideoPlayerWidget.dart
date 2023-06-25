@@ -10,12 +10,12 @@ class VideoPlayerWidget extends StatefulWidget {
   const VideoPlayerWidget({Key? key, required this.video}) : super(key: key);
 
   @override
-  _VideoPlayerWidgetState createState() => _VideoPlayerWidgetState();
+  VideoPlayerWidgetState createState() => VideoPlayerWidgetState();
 }
 
-class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
-  late VideoPlayerController _videoPlayerController;
-  late ChewieController _chewieController;
+class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+  late VideoPlayerController videoPlayerController;
+  late ChewieController chewieController;
   bool isVisible = false;
   bool isVideoLoading = true;
   bool isVideoInitialized = false;
@@ -24,9 +24,9 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   void initState() {
     super.initState();
 
-    _videoPlayerController = VideoPlayerController.network(widget.video.mediaUrl);
-    _chewieController = ChewieController(
-      videoPlayerController: _videoPlayerController,
+    videoPlayerController = VideoPlayerController.network(widget.video.mediaUrl);
+    chewieController = ChewieController(
+      videoPlayerController: videoPlayerController,
       autoPlay: false,
       looping: true,
       allowPlaybackSpeedChanging: false,
@@ -40,7 +40,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
   Future<void> _initializeVideo() async {
     if (!isVideoInitialized) {
-      await _videoPlayerController.initialize();
+      await videoPlayerController.initialize();
       setState(() {
         isVideoInitialized = true;
       });
@@ -49,15 +49,15 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     if (mounted) {
       setState(() {
         isVideoLoading = false;
-        _videoPlayerController.play();
+        videoPlayerController.play();
       });
     }
   }
 
   @override
   void dispose() {
-    _videoPlayerController.dispose();
-    _chewieController.dispose();
+    videoPlayerController.dispose();
+    chewieController.dispose();
     super.dispose();
   }
 
@@ -84,7 +84,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                   Container(
                     color: Colors.black,
                     child: Chewie(
-                      controller: _chewieController,
+                      controller: chewieController,
                     ),
                   ),
                 if (!isVideoInitialized || (isVisible && isVideoLoading))
@@ -138,7 +138,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                           },
                           icon: const Icon(Icons.favorite, color: Colors.white, size: 45),
                         ),
-                        const SizedBox(height: 5.0),
+
                         Padding(
                           padding: const EdgeInsets.only(left: 10.0),
                           child: Text(
@@ -146,7 +146,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                             style: const TextStyle(color: Colors.white),
                           ),
                         ),
-                        const SizedBox(height: 17.0),
+
                         IconButton(
                           onPressed: () {
                             // Handle comment button action
@@ -160,7 +160,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                             style: const TextStyle(color: Colors.white),
                           ),
                         ),
-                        const SizedBox(height: 17.0),
+
                         IconButton(
                           onPressed: () {
                             // Handle share button action

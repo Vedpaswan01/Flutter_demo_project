@@ -28,7 +28,7 @@ class SecondPageState extends State<SecondPage> {
   void initState() {
     super.initState();
     currentPageValue = widget.currentPage;
-    _pageController = PageController(initialPage: widget.currentIndex);
+     _pageController = PageController(initialPage: widget.currentIndex);
   }
 
   Future<List<Video>> fetchVideos() async {
@@ -64,7 +64,7 @@ class SecondPageState extends State<SecondPage> {
 
   @override
   void dispose() {
-    _pageController.dispose();
+     _pageController.dispose();
     super.dispose();
   }
 

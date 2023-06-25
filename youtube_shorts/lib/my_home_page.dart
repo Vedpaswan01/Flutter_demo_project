@@ -17,7 +17,7 @@ class MyHomePage extends StatefulWidget {
 class MyHomePageState extends State<MyHomePage> {
   int currentPage = 0;
   List<Video> videos = [];
-  List<Video> nextVideos = [];
+
 
 
   @override
@@ -109,7 +109,7 @@ class MyHomePageState extends State<MyHomePage> {
             setState(() {
               videos.addAll(videoList);
             });
-          //  preLoadNextVideos();
+
           });
         }
 
